@@ -1,0 +1,100 @@
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Custom properties */
+:root {
+    --clr-primary: 0 0% 0%; /* black */
+    --clr-secondary: 0 100% 100%; /* white */
+    --clr-accent: 330 100% 71%; /* hotpink */
+
+    --ff: "Bellefair", serif;
+}
+
+/* Utility classes */
+/* Typography */
+.bg-primary {
+    background-color: hsl(var(--clr-primary));
+}
+
+.bg-accent {
+    background-color: hsl(var(--clr-accent));
+}
+
+.text-secondary {
+    color: hsl(var(--clr-secondary));
+}
+
+.text-primary {
+    color: hsl(var(--clr-primary));
+}
+
+.text-centered {
+    text-align: center;
+}
+
+/* Layout */
+.wrapper {
+    max-width: 60rem;
+    padding-inline: 1rem;
+    margin-inline: auto;
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, 1rem);
+}
+
+/* Components */
+body {
+    font-family: var(--ff);
+}
+
+/* Blog articles */
+.blog-article {
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+@media (width < 35em) {
+    .blog-article {
+        padding-inline: 1rem;
+    }
+}
+
+.blog-article__img {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.blog-article__img--fade-in {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 350ms ease-in, transform 500ms ease-in;
+}
+
+.appear {
+    opacity: 1;
+    transform: translateX(0);
+}
