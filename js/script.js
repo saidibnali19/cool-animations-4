@@ -1,18 +1,16 @@
-const fadingInImage = document.querySelector("[data-fade-in]");
+const fadeInImage = document.querySelector("[data-fade-in-image]");
 
-const options = {
+const fadeInOptions = {
     rootMargin: "0px",
     threshold: 0,
 };
 
-const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+const fadeInObserver = new IntersectionObserver((entries, fadeInObserver) => {
     entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        else {
-            entry.target.classList.add("appear");
-            appearOnScroll.unobserve(entry.target);
-        }
+        entry.target.classList.add("appear");
+        fadeInObserver.unobserve(entry.target);
     });
-}, options);
+}, fadeInOptions);
 
-appearOnScroll.observe(fadingInImage);
+fadeInObserver.observe(fadeInImage);
